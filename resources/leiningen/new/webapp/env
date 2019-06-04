@@ -1,0 +1,25 @@
+echo "sourcing {{name}} .env"
+
+#### Update these in .env.local
+## db stuff
+export DATABASE_NAME={{name}}
+export DATABASE_HOST=localhost
+export DATABASE_PORT=5432
+export DATABASE_USER={{name}}
+export DATABASE_PASSWORD={{name}}
+
+## app config
+export PORT=3003
+export PUBLIC=false
+export REPL_PORT=3999
+export REPL_PUBLIC=false
+export INSTRUMENT=true
+export PRETTY_LOGS=false
+
+
+if [ -f .env.local ]; then
+    echo "sourcing .env.local"
+    source .env.local
+else
+    echo "no .env.local found"
+fi
